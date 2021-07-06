@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @RequestMapping("/hello")
     public String hello() {
-        return "【应用构建】世界，你好！这就是SpringBoot应用。";
+        return "【springboot】应用构建成功，开始玩转SpringBoot学习。";
     }
 }
