@@ -1,0 +1,22 @@
+server:
+  port: 8082
+# 【1】自定义数据
+name: abc
+
+# 【2】对象写法
+person:
+  name: ${name} #zhangsan，参数引用写法
+  age: 26
+# 对象行内写法
+person2: {name: zhangsan, age: 26}
+
+# 【3】数组写法
+address:
+  - wuhan
+  - shenzhen
+# 数组行业写法
+address2: [wuhan, shenzhen]
+
+# 【4】纯量
+msg1: 'hello \n world' # 不会识别转义字符，\n原样输出
+msg2: "hello \n world" # 会识别转义字符，分两行输出
