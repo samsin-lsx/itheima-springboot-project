@@ -1,5 +1,5 @@
-server:
-  port: 8082
+#server:
+#  port: 8082
 # 【1】自定义数据
 name: abc
 
@@ -7,6 +7,9 @@ name: abc
 person:
   name: ${name} #zhangsan，参数引用写法
   age: 26
+  address:
+    - beijing
+    - shanghai
 # 对象行内写法
 person2: {name: zhangsan, age: 26}
 
@@ -20,3 +23,24 @@ address2: [wuhan, shenzhen]
 # 【4】纯量
 msg1: 'hello \n world' # 不会识别转义字符，\n原样输出
 msg2: "hello \n world" # 会识别转义字符，分两行输出
+
+# profile文件配置
+---
+server:
+  port: 8084
+spring:
+  profiles: dev
+---
+server:
+  port: 8085
+spring:
+  profiles: test
+---
+server:
+  port: 8086
+spring:
+  profiles: pro
+---
+spring:
+  profiles:
+    active: pro

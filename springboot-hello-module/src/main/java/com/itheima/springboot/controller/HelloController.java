@@ -1,5 +1,6 @@
 package com.itheima.springboot.controller;
 
+import com.itheima.springboot.bean.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -35,6 +36,9 @@ public class HelloController {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    private Person person;
+
     @RequestMapping("/hello")
     public String hello() {
         System.out.println("【使用@Value获取文件内容】------------------------------------------");
@@ -49,6 +53,12 @@ public class HelloController {
         System.out.println(environment.getProperty("name"));
         System.out.println(environment.getProperty("person.age"));
         System.out.println(environment.getProperty("address[0]"));
+        System.out.println("【使用ConfigurationProperties获取文件内容】------------------------------------------");
+        System.out.println(person);
+        String[] personArr = person.getAddress();
+        for (String s : personArr) {
+            System.out.println(s);
+        }
         return "【springboot】应用构建成功，开始玩转SpringBoot学习。";
     }
 }
