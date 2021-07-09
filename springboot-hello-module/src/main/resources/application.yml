@@ -28,11 +28,18 @@ msg2: "hello \n world" # 会识别转义字符，分两行输出
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc.mysql://localhost:3306/springboot_study
+    url: jdbc:mysql://localhost:3306/springboot_study?useSSL=false
     username: root
     password: root
 
+# mybatis配置
+
 # profile文件配置
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml # mapper接口映射文件
+  type-aliases-package: com.itheima.springboot.bean # 指定实体类别名
+  #config-location: xxx.xml # 用于指定mybatis核心配置文件
+
 ---
 server:
   port: 8084
