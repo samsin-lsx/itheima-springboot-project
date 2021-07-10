@@ -1,9 +1,8 @@
 package com.itheima.springboot.config;
 
 import com.itheima.springboot.bean.User;
-import com.itheima.springboot.condition.ClassCondition;
+import com.itheima.springboot.condition.ConditionOnClass;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,7 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UserConfig {
     @Bean
-    @Conditional(ClassCondition.class) // 此注解返回true则创建，否则不创建
+    //@Conditional(ClassCondition.class) // 此注解返回true则创建，否则不创建
+    @ConditionOnClass({"cn.hutool.core.map.MapUtil", "redis.clients.jedis.Jedis"})
     public User user() {
         return new User();
     }
