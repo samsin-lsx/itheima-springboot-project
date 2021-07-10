@@ -21,7 +21,20 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!--排除tomcat依赖-->
+            <!--<exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
+
+        <!-- 引入jetty依赖 -->
+        <!--<dependency>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,6 +80,11 @@
             <version>5.6.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.itheima</groupId>
+            <artifactId>springboot-other-module</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,6 +92,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.1</version>
             </plugin>
         </plugins>
     </build>
